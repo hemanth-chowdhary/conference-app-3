@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+This is an example HTML that shows how WebGazer can be used on a website.
+This file provides the additional features:
+  * An integrated, intuitive and sleek action bar with an informative "help" module accessible at all times
+  * Structured 9-point calibration system
+  * Accuracy measure of predictions based on calibration process
+  * Video feedback regarding face positioning
+  * Improved eye predictions visible to the user
+Instructions on use can be found in the README repository.
+-->
+<html>
+
+<head>
+  <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+  <TITLE>Calibration Exercise</TITLE>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous" />
+  <script async type="text/javascript" src="./webgazer.js"></script>
+  <style>
+    #testImage{
+      background-image:url('');
+      background-size:cover;
+      background-position: center;
+      height: 100vh; 
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body LANG="en-US" LINK="#0000ff" DIR="LTR" id="testImage">
+<div class="d-flex justify-content-end">
+    <p id="Accuracy">
+      <a href="#">Not yet calibrated</a>
+    </p>
+    <a href="#" class="btn-sm" onclick="Restart()">Recalibrate</a>
+  </div>
+  
+  <canvas id="plotting_canvas" width="500" height="500" style="cursor:crosshair;"></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+    integrity="sha256-KsRuvuRtUVvobe66OFtOQfjP8WA2SzYsmm4VPfMnxms=" crossorigin="anonymous"></script>
+
+  <script src="./js/main.js"></script>
+  <script src="./js/calibration.js"></script>
+  <script src="./js/precision_calculation.js"></script>
+  <script src="./js/precision_store_points.js"></script>
+
+
+  <!-- <nav class="navbar navbar-light bg-light" id="webgazerNavbar" style="width:5rem;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" id="Accuracy">
+          <a>Not yet Calibrated</a>
+        </li>
+
+        <li class="nav-item" onclick="Restart()">
+          <a class="nav-link" href="#">Recalibrate</a>
+        </li>
+
+        <li class="nav-item" onclick="saveGaze()">
+          <a class="nav-link" href="#">Save</a>
+        </li>
+
+        <li class="nav-item">
+          <input type='file' onchange="readURL(this);" />
+        </li>
+      </ul>
+    </div>
+  </nav> -->
+
+  <!-- Calibration points -->
+  <div class="calibrationDiv">
+    <input type="button" class="Calibration" id="Pt1"></input>
+    <input type="button" class="Calibration" id="Pt2"></input>
+    <input type="button" class="Calibration" id="Pt3"></input>
+    <input type="button" class="Calibration" id="Pt4"></input>
+    <input type="button" class="Calibration" id="Pt5"></input>
+    <input type="button" class="Calibration" id="Pt6"></input>
+    <input type="button" class="Calibration" id="Pt7"></input>
+    <input type="button" class="Calibration" id="Pt8"></input>
+    <input type="button" class="Calibration" id="Pt9"></input>
+  </div>
+
+  
+
+  <!-- Modal -->
+  <div id="helpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-footer">
+          <h2 class="modal-title">Start Calibration?</h2>
+          <button id="closeBtn" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="Restart()">OK</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <button id="join-btn" style="display: none;">Join Call</button>
+
+
+  <!-- Latest compiled JavaScript -->
+  <script src="./js/resize_canvas.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha256-CjSoeELFOcH0/uxWu6mC/Vlrc1AARqbm/jiiImDGV3s=" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

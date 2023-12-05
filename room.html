@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Room</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles/room.css'>
+</head>
+<body>
+
+    <header id="nav">
+        <div class="nav--list">
+            <a href="index.html"/>
+                <h3 id="logo">
+                    <img src="./images/logo.png" alt="Site Logo">
+                    <span>AttentiveConference</span>
+                </h3>
+            </a>
+        </div>
+
+        <div class="nav--list">
+            <h3><span>Room</span></h3>
+        </div>
+
+        <button id="muteAllButton" style="display: none;">Mute All</button>
+        <button id="unmuteAllButton" style="display: none;">Unmute All</button>
+
+        <div id="nav__links">
+            <a class="nav__link" id="create__room__btn" href="index.html">
+                back to lobby
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg>
+            </a>
+        </div>
+        
+    </header>
+
+    <div id="modal" style="display: none;">
+        <div id="modal-content">
+            <p id="modal-message"></p>
+            <button id="modal-accept">Accept</button>
+            <button id="modal-ignore">Ignore</button>
+        </div>
+    </div>
+
+    <main class="container">
+        <div id="room__container">
+
+            <section id="stream__container">
+                <div id="streams__container"></div>
+
+                <div class="stream__actions">
+                    <button id="camera-btn" class="active">
+                        <svg fill="#000000" width="800px" height="800px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 240v1440h1500.536v-438.89L1920 1574.062V346.051L1500.536 678.89V240H0Zm109.779 109.779h1280.979v556.348l177.995-141.29 241.468-191.66v773.646l-241.468-191.549-177.995-141.29v556.236H109.778V349.78Z" fill-rule="evenodd"/>
+                        </svg>
+                    </button>
+                    <button id="mic-btn" class="active">
+                        <svg fill="#000000" width="800px" height="800px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M960.315 96.818c-186.858 0-338.862 152.003-338.862 338.861v484.088c0 186.858 152.004 338.862 338.862 338.862 186.858 0 338.861-152.004 338.861-338.862V435.68c0-186.858-152.003-338.861-338.861-338.861M427.818 709.983V943.41c0 293.551 238.946 532.497 532.497 532.497 293.55 0 532.496-238.946 532.496-532.497V709.983h96.818V943.41c0 330.707-256.438 602.668-580.9 627.471l-.006 252.301h242.044V1920H669.862v-96.818h242.043l-.004-252.3C587.438 1546.077 331 1274.116 331 943.41V709.983h96.818ZM960.315 0c240.204 0 435.679 195.475 435.679 435.68v484.087c0 240.205-195.475 435.68-435.68 435.68-240.204 0-435.679-195.475-435.679-435.68V435.68C524.635 195.475 720.11 0 960.315 0Z" fill-rule="evenodd"/>
+                        </svg>
+                    </button>
+                    <button id="leave-btn" style="background-color: #FF5050;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 10v-5l8 7-8 7v-5h-8v-4h8zm-16-8v20h14v-2h-12v-16h12v-2h-14z"/></svg>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+</body>
+<script type="text/javascript" src="javascript/AgoraRTC_N-4.11.0.js" defer></script>
+<script type="text/javascript" src="javascript/agora-rtm-sdk-1.4.4.js"></script>
+<script type="text/javascript" src="https://webgazer.cs.brown.edu/webgazer.js?" defer></script>
+<script type="text/javascript" src="javascript/room.js" defer></script>
+<script type="text/javascript" src="javascript/eye_tracking.js" defer></script>
+</html>
